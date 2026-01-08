@@ -22,6 +22,7 @@ public class Ejemplo045 {
         obtenerReporte(arreglo1);
         obtenerReporte(arreglo2);
         obtenerReporte(arreglo3);
+        obtenerReporte(arreglo4);
     }
 
     public static int[][] llenarMatriz(int[][] x, int[][] y) {
@@ -56,18 +57,33 @@ public class Ejemplo045 {
     }
 
     public static double[][] llenarMatriz2(int[][] x, int[][] y) {
-        int[][] z = new int[3][3];
+        double[][] z = new double[3][3];
 
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[i].length; j++) {
-                z[i][j] = obtenerMultiplicacion(x[i][j],
+                z[i][j] = obtenerPotencia(x[i][j],
                         y[i][j]);
             }
+        }
+        return z;
+    }
                 
 
-    public static double obtenerPotencia(double a, double b) {
-        int operacion;
-        operacion = a(Math.pow (b));
+    
+
+    public static double obtenerPotencia(int a, int b){
+        double operacion;
+        operacion = Math.pow(a, b);
         return operacion;
+    }
+     public static void obtenerReporte(double[][] arreglo1) {
+        String cadena = "";
+        for (int i = 0; i < arreglo1.length; i++) {
+            for (int j = 0; j < arreglo1[i].length; j++) {
+                cadena = String.format("%s%.2f\t", cadena, arreglo1[i][j]);
+            }
+            cadena = String.format("%s\n", cadena);
+        }
+        System.out.println(cadena);
     }
 }
